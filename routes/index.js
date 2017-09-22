@@ -21,6 +21,14 @@ router.get('/reg', function(req, res, next) {
   })
 });
 
+router.get('/login', function(req, res, next) {
+  res.render('login', {
+    title: 'Sign In',
+    success : req.flash('success').toString(),
+    error : req.flash('error').toString()
+  })
+});
+
 /* CHECK PASSWORD  */
 router.post('/reg', function(req, res) {
   if(req.body['reg_username'] === '') {
